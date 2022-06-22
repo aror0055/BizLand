@@ -1,3 +1,14 @@
+<?php 
+function active($currect_page){
+  $url_array =  explode('/', $_SERVER['REQUEST_URI']) ;
+  $current_url = end($url_array);  
+
+  if($currect_page == $current_url){
+      echo 'active';
+  } 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,11 +73,11 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto <-- if(this page is active){make the nav item bold/active} -->" href="index.php?page=<?php echo $page["pg1"];?>">Home</a></li>
-        <li><a class="nav-link" href="about.php?page=<?php echo $page["pg2"];?>">About</a></li>
-        <li><a class="nav-link scrollto" href="#services?page=<?php echo $page["3"];?>">Services</a></li>
-        <li><a class="nav-link scrollto " href="#portfolio?page=<?php echo $page["4"];?>">Portfolio</a></li>
-        <li><a class="nav-link scrollto" href="#team?page=<?php echo $page["5"];?>">Team</a></li>
+        <li><a class="nav-link scrollto <?php active('index.php');?>" href="index.php">Home</a></li>
+        <li><a class="nav-link <?php active('about.php');?>" href="about.php">About</a></li>
+        <li><a class="nav-link scrollto <?php active('index.php#services');?>" href="index.php#services">Services</a></li>
+        <li><a class="nav-link scrollto <?php active('index.php#portfolio');?>" href="index.php#portfolio">Portfolio</a></li>
+        <li><a class="nav-link scrollto <?php active('index.php#team');?>" href="index.php#team">Team</a></li>
         <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="#">Drop Down 1</a></li>
@@ -84,7 +95,7 @@
             <li><a href="#">Drop Down 4</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto <?php active('index.php#contact');?>" href="index.php#contact">Contact</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav><!-- .navbar -->

@@ -2,8 +2,6 @@
 
 include 'header.php';
 
-$page = 'pg1';
-
 ?>
 
 
@@ -21,6 +19,7 @@ $page = 'pg1';
   <main id="main">
 
     <!-- ======= Featured Services Section ======= -->
+
     <section id="featured-services" class="featured-services">
       <div class="container" data-aos="fade-up">
 
